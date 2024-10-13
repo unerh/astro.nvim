@@ -11,6 +11,7 @@ return {
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
+  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
   { import = "astrocommunity.lsp.lspsaga-nvim" },
@@ -47,5 +48,7 @@ return {
   { import = "astrocommunity.recipes.vscode" },
 
   { import = "astrocommunity.test.neotest" },
+
+  { import = "astrocommunity.utility.telescope-fzy-native-nvim" },
   -- import/override with your plugins folder
 }
