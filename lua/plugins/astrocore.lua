@@ -11,11 +11,11 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true,                                 -- enable autopairs at start
-      cmp = true,                                       -- enable completion at start
-      diagnostics_mode = 3,                             -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
-      highlighturl = true,                              -- highlight URLs at start
-      notifications = true,                             -- enable notifications at start
+      autopairs = true, -- enable autopairs at start
+      cmp = true, -- enable completion at start
+      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      highlighturl = true, -- highlight URLs at start
+      notifications = true, -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
@@ -24,14 +24,14 @@ return {
     },
     -- vim options can be configured here
     options = {
-      opt = {                  -- vim.opt.<key>
+      opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
-        number = true,         -- sets vim.opt.number
-        spell = false,         -- sets vim.opt.spell
-        signcolumn = "yes",    -- sets vim.opt.signcolumn to yes
-        wrap = false,          -- sets vim.opt.wrap
+        number = true, -- sets vim.opt.number
+        spell = false, -- sets vim.opt.spell
+        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        wrap = false, -- sets vim.opt.wrap
       },
-      g = {                    -- vim.g.<key>
+      g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
@@ -49,8 +49,9 @@ return {
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
-        ["<C-p>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" },
-        ["<C-x>"] = {
+        ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<M-d>"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
               function(bufnr) require("astrocore.buffer").close(bufnr) end
@@ -58,6 +59,7 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<C-p>"] = { function() require("astrocore.buffer").prev() end, desc = "Switch buffer" },
         ["<C-n>"] = {
           function()
             require("astroui.status.heirline").buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)
@@ -75,7 +77,14 @@ return {
 
         ["<leader>ss"] = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "Replace Current" },
         ["<leader>se"] = { ":%s///gc<Left><Left><Left>", desc = "Replace Text" },
-        ["<leader>fM"] = { ":Telescope marks<cr>", desc = "Find marks" },
+        ["<leader>fg"] = {
+          ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+          desc = "Find Live Grep Args",
+        },
+        ["<leader>fG"] = {
+          ":lua require('telescope-live-grep-args.shortcuts').grep_word_under_cursor({postfix = ' -Fit'})<CR>",
+          desc = "Find Live Grep Args",
+        },
         ["<leader>fj"] = { ":Telescope jumplist<cr>", desc = "Find jumplist" },
         ["<leader>gBo"] = { ":GitBlameOpenFileURL<cr>", desc = "Git Blame Open File" },
         ["<leader>gBc"] = { ":GitBlameCopyFileURL<cr>", desc = "Git Blame Copy File" },
@@ -90,6 +99,10 @@ return {
       },
       v = {
         ["Es"] = { 'y:%s/<C-R>"/<C-r>"/gc<Left><Left><Left>', desc = "Replace Visual" },
+        ["<leader>fG"] = {
+          ":lua require('telescope-live-grep-args.shortcuts').grep_visual_selection({postfix = ' -Fit'})<CR>",
+          desc = "Find Live Grep Args",
+        },
       },
     },
   },
