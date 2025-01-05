@@ -20,7 +20,7 @@ return {
 
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.cs" },
+  -- { import = "astrocommunity.pack.cs" },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.helm" },
   { import = "astrocommunity.pack.html-css" },
@@ -33,7 +33,7 @@ return {
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.pack.ps1" },
-  { import = "astrocommunity.pack.ruby" },
+  -- { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.python" },
