@@ -86,8 +86,8 @@ return {
           desc = "Find Live Grep Args",
         },
         ["<leader>fj"] = { ":Telescope jumplist<cr>", desc = "Find jumplist" },
-        ["<leader>gBo"] = { ":GitBlameOpenFileURL<cr>", desc = "Git Blame Open File" },
-        ["<leader>gBc"] = { ":GitBlameCopyFileURL<cr>", desc = "Git Blame Copy File" },
+        ["<leader>ge"] = { ":GitBlameOpenFileURL<cr>", desc = "Git Blame Open File" },
+        ["<leader>gn"] = { ":GitBlameCopyFileURL<cr>", desc = "Git Blame Copy File" },
         ["<leader>mg"] = { ":Glow<cr>", desc = "Glow Current" },
         ["<leader>z"] = { ":ZenMode<cr>", desc = "Zen Mode" },
         -- tables with just a `desc` key will be registered with which-key if it's installed
