@@ -1,3 +1,23 @@
+local function update_chat_window_position()
+  local width = 74
+  local height = vim.o.lines - 4
+  local row = 1
+  local col = (vim.o.columns - width) -- center the window horizontally
+
+  vim.api.nvim_win_set_config(0, {
+    relative = "editor",
+    width = width,
+    height = height,
+    row = row,
+    col = col,
+    style = "minimal",
+  })
+end
+
+vim.api.nvim_create_autocmd("VimResized", {
+  callback = update_chat_window_position,
+})
+
 ---@type LazySpec
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
@@ -124,10 +144,10 @@ return {
   opts = {
     window = {
       layout = "float",
-      width = 74,               -- absolute width in columns
+      width = 74, -- absolute width in columns
       height = vim.o.lines - 4, -- absolute height in rows, subtract for command line and status line
-      row = 1,                  -- row position of the window, starting from the top
-      col = vim.o.columns - 74, -- column position of the window, aligned to the right
+      row = 1, -- row position of the window, starting from the top
+      col = (vim.o.columns - 74), -- center the window horizontally
     },
   },
 }
