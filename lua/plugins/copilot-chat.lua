@@ -128,11 +128,19 @@ return {
           end
         end
 
+        maps.n["<M-q>"] = {
+          quick_chat "buffer",
+          desc = "CopilotChat Quick Chat",
+        }
         maps.n[prefix .. "q"] = {
           quick_chat "buffer",
           desc = "Quick Chat",
         }
 
+        maps.v["<M-q>"] = {
+          quick_chat "visual",
+          desc = "CopilotChat Quick Chat",
+        }
         maps.v[prefix .. "q"] = {
           quick_chat "visual",
           desc = "Quick Chat",

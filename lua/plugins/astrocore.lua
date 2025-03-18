@@ -74,6 +74,18 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader>Dl"] = {
+          ":DiffviewOpen origin/HEAD...HEAD --imply-local<CR>",
+          desc = "DiffView Open Local",
+        },
+        ["<Leader>Df"] = {
+          ":DiffviewFileHistory %<CR>",
+          desc = "DiffView Current File",
+        },
+        ["<Leader>Dc"] = {
+          ":DiffviewClose<CR>",
+          desc = "DiffView Close",
+        },
 
         ["<leader>ss"] = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", desc = "Replace Current" },
         ["<leader>se"] = { ":%s///gc<Left><Left><Left>", desc = "Replace Text" },
@@ -88,6 +100,14 @@ return {
         ["<leader>fj"] = { ":Telescope jumplist<cr>", desc = "Find jumplist" },
         ["<leader>ge"] = { ":GitBlameOpenFileURL<cr>", desc = "Git Blame Open File" },
         ["<leader>gn"] = { ":GitBlameCopyFileURL<cr>", desc = "Git Blame Copy File" },
+        ["<leader>gP"] = {
+          function()
+            local pr_number = vim.fn.input "Enter PR Number (enter for clipboard): "
+            if pr_number == "" then pr_number = vim.fn.getreg "+" end
+            print("PR Number: " .. pr_number)
+          end,
+          desc = "Git Checkout PR from clipboard/input",
+        },
         ["<leader>mg"] = { ":Glow<cr>", desc = "Glow Current" },
         ["<leader>z"] = { ":ZenMode<cr>", desc = "Zen Mode" },
         -- tables with just a `desc` key will be registered with which-key if it's installed

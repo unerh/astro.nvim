@@ -13,7 +13,11 @@ return {
 
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
+
+  { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
+  { import = "astrocommunity.git.octo-nvim" },
+
   { import = "astrocommunity.lsp.lspsaga-nvim" },
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
