@@ -59,6 +59,7 @@ return {
 
         maps.n[prefix .. "o"] = { ":CopilotChatOpen<CR>", desc = "Open Chat" }
         maps.n[prefix .. "c"] = { ":CopilotChatClose<CR>", desc = "Close Chat" }
+        maps.n[prefix .. "m"] = { ":CopilotChatModels<CR>", desc = "Change Model" }
         maps.n[prefix .. "t"] = { ":CopilotChatToggle<CR>", desc = "Toggle Chat" }
         maps.n[prefix .. "r"] = { ":CopilotChatReset<CR>", desc = "Reset Chat" }
         maps.n[prefix .. "s"] = { ":CopilotChatStop<CR>", desc = "Stop Chat" }
