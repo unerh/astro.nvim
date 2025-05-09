@@ -105,6 +105,10 @@ return {
             local pr_number = vim.fn.input "Enter PR Number (enter for clipboard): "
             if pr_number == "" then pr_number = vim.fn.getreg "+" end
             print("PR Number: " .. pr_number)
+            require("telescope").extensions.git_worktree.create_git_worktree {
+              create_branch = "pr/" .. pr_number,
+              pr_number = pr_number,
+            }
           end,
           desc = "Git Checkout PR from clipboard/input",
         },

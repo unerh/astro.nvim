@@ -14,9 +14,9 @@ local function update_chat_window_position()
   })
 end
 
-vim.api.nvim_create_autocmd("VimResized", {
-  callback = update_chat_window_position,
-})
+-- vim.api.nvim_create_autocmd("VimResized", {
+--   callback = update_chat_window_position,
+-- })
 
 ---@type LazySpec
 return {
